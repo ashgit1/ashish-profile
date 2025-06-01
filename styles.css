@@ -160,9 +160,13 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
     z-index: 999;
+    background: none;
+}
+
+.mobile-nav.active {
+    display: block;
 }
 
 .mobile-nav-toggle {
@@ -170,6 +174,10 @@ body {
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
 }
 
 .mobile-nav-toggle span {
@@ -179,32 +187,98 @@ body {
     transition: all 0.3s ease;
 }
 
+.mobile-nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
 .mobile-menu {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    position: fixed;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    background: var(--card-background);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .mobile-menu ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .mobile-menu ul li {
-    margin: 1rem 0;
+    margin: 0;
 }
 
-.mobile-menu ul li a {
-    color: white;
+.mobile-menu a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
     text-decoration: none;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 5px;
 }
 
-.mobile-menu ul li a:hover {
-    color: var(--secondary-color);
+.mobile-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+    .navbar .container {
+        padding: 0 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-nav-toggle {
+        display: flex;
+    }
+    
+    .theme-container {
+        display: none;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-image {
+        margin: 2rem 0;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+        width: 100%;
+    }
 }
 
 /* Desktop Navigation */

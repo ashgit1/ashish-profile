@@ -51,16 +51,9 @@ window.addEventListener('load', () => {
 // Mobile Navigation
 const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
 const mobileNav = document.querySelector('.mobile-nav');
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
 
 mobileNavToggle.addEventListener('click', () => {
     mobileNav.classList.toggle('active');
-});
-
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    navToggle.classList.toggle('active');
 });
 
 // Smooth scrolling for navigation links
